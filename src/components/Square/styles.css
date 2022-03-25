@@ -1,0 +1,10 @@
+
+.rectangle {
+    
+    background: #99cbff ;
+    border-color: black;
+    border: 2px solid;
+}
+.value {
+    color: red;
+}
