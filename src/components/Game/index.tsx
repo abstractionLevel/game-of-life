@@ -1,6 +1,6 @@
 import Border from "../Border"
 
-const Game = (props:any) => {
+const Game = () => {
 
     const generateGrid = (row:number,column:number) => {//cambiare il nome in quello che fa(in questo caso crea un array bidimensionale)
         return Array(row).fill(null)
