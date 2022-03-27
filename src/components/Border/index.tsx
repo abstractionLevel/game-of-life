@@ -2,17 +2,17 @@ import Square from "../Square"
 import './styles.css'
 
 
-const Board = (props:any) => {
+const Border = (props:any) => {
     
     return (
         <div className="content">
-            {props.squares.map((square:any, i:any) => (
-                square.map((s:any,i:any)=>(
-                    <Square key={i} value={s}/>
+            {props.squares.map((c:any, i:any) => (
+                c.map((r:any,i:any)=>(
+                    <Square key={i} value={r}/>
                 ))
             ))}
         </div>
     )
 }
 
-export default Board; 
+export default Border; 
