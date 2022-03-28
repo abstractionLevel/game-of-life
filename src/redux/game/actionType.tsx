@@ -1,1 +1,2 @@
-export const GENERATE_LIFE = 'GENERATE_LIFE'
+export const GENERATE_LIFE = 'GENERATE_LIFE';
+export const UPDATE_GRID = 'UPDATE_GRID';

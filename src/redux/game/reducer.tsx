@@ -2,7 +2,7 @@ import { GENERATE_LIFE } from "./actionType";
 
 const generateGrid = (row:number,column:number) => {//cambiare il nome in quello che fa(in questo caso crea un array bidimensionale)
     return Array(row).fill(null)
-        .map(()=>Array(column).fill("*"))
+        .map(()=>Array(column).fill(null))
 }
 
 const initialState = {
