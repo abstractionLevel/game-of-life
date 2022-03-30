@@ -25,9 +25,6 @@ const Game = (props:any) => {
         return summ;//return the summ of cells
     }
     
-
-    
-
     const startGame = (grid:any) => {
 
         let gridCopy = JSON.parse(JSON.stringify(grid));//copy grid in gridCopy
