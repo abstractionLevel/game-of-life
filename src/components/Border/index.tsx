@@ -3,7 +3,6 @@ import './styles.css'
 
 
 const Border = (props:any) => {
-    
     return (
         <div className="content">
             {props.squares.map((c:any, i:any) => (

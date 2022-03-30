@@ -1,17 +1,24 @@
-import { GENERATE_LIFE } from "./actionType";
+import {UPDATE_GRID } from "./actionType";
+import initGame from "../../constants/init.json";
+import { generateGrid } from "../../utils/game";
 
-const generateGrid = (row:number,column:number) => {//cambiare il nome in quello che fa(in questo caso crea un array bidimensionale)
-    return Array(row).fill(null)
-        .map(()=>Array(column).fill(null))
+
+
+
+const propertyGame  = () => {
+    return initGame.map((val)=>(val))
 }
 
-const initialState = {
-    grid: generateGrid(8,8)
+
+const initialState = {//inizializzo lo stato della griglia
+    grid:generateGrid(),
+    propertyGame: propertyGame()
+    
 }
 
 const reducer = (state = initialState,action:any) => {
     switch(action.type) {
-        case GENERATE_LIFE:
+        case UPDATE_GRID:
             return {
                 ...state,
                 grid:action.payload
