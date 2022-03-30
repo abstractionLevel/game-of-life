@@ -5,9 +5,9 @@ import './styles.css'
 const Border = (props:any) => {
     return (
         <div className="content">
-            {props.squares.map((c:any, i:any) => (
-                c.map((r:any,i:any)=>(
-                    <Square key={i} value={r}/>
+            {props.squares.map((c:any) => (
+                c.map((r:any)=>(
+                    <Square  value={r}/>
                 ))
             ))}
         </div>

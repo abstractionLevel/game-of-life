@@ -3,13 +3,12 @@ import   "./styles.css";
 
 
 interface Props {
-    key: number;
     value: number;
 }
 
 const Square = (props:Props) => {
     
-    const {value,key} = props;
+    const {value} = props;
 
     return (
         <div className="rectangle  d-flex align-items-center justify-content-center" >
