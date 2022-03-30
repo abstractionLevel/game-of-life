@@ -8,21 +8,21 @@ import { positions } from "../../utils/game";
 const Game = (props:any) => {
 
     const [generation,setGeneration] = useState(0);
-    const [running , setRunning] = useState(false);
 
-    //questa funzione conteggia le celle attorno
+    //function that counts how many cells are active
     const countNeighbors = (grid:any,i:any,t:any) => {    
         let summ = 0;
-        positions.forEach(([x, y]) => {//itero le posizioni attorno alla cella 
+        positions.forEach(([x, y]) => {//check every position around the cell 
             const newI = i + x;
             const newJ = t + y;
-            if (newI >= 0 && newI < grid.length && newJ >= 0 && newJ < grid.length) {//controllo che l'array non e' negativo e che non supera la grandella della cella
-                if(grid[newI][newJ]===1) { //se la posizione ha valore 1
-                    summ += grid[newI][newJ]//assegno e sommo 
+            //check just positive values and the values are  less than the size of grid
+            if (newI >= 0 && newI < grid.length && newJ >= 0 && newJ < grid.length) {
+                if(grid[newI][newJ]===1) { //only check positions that have value 1
+                    summ += grid[newI][newJ]//increment  
                 }
             }
         });
-        return summ;//ritorno il conteggio delle celle vicine
+        return summ;//return the summ of cells
     }
     
 
@@ -30,27 +30,28 @@ const Game = (props:any) => {
 
     const startGame = (grid:any) => {
 
-        let gridCopy = JSON.parse(JSON.stringify(grid));//asengo una copia della griglia
+        let gridCopy = JSON.parse(JSON.stringify(grid));//copy grid in gridCopy
 
-        for (let i = 0; i < gridCopy.length; i++) {
-            for (let j = 0; j < gridCopy.length; j++) {
+        //start the iteration of grid
+        for (let y = 0; y < gridCopy.length; y++) {
+            for (let x = 0; x < gridCopy.length; x++) {
 
-                let neighbors = countNeighbors(grid,i,j);//conteggio delle celle vicine
+                let neighbors = countNeighbors(grid,y,x);//assing  the sum of neighbors
 
-                //inizio del controllo delle regole del gioco
-                if (grid[i][j] === 1 && neighbors < 2 ) { //se la cellula ha meno di due vicini o piu di tre la setto a 0( muore)
-                    gridCopy[i][j] = 0;
-                } else if (grid[i][j] === 1 && (neighbors === 2  || neighbors === 3)) {//se la cellula e' viva ed ha 2 o 3 vicini sopravvive
-                    gridCopy[i][j] = 1;
-                }else if (grid[i][j] === 1 && neighbors > 3) {//se la cellula e' viva ed ha piu di 3 cellule vicine muore
-                    gridCopy[i][j] = 0;
-                }else if (grid[i][j] === 0 && neighbors === 3) {//se la cellula e' morta ed ha 3 cellule vicine sopravvive
-                    setGeneration(generation+1)//incremento la generazione
-                    gridCopy[i][j] = 1;
+                //start to check the rule of game
+                if (grid[y][x] === 1 && neighbors < 2 ) { //Any live cell with fewer than two live neighbours dies
+                    gridCopy[y][x] = 0;
+                } else if (grid[y][x] === 1 && (neighbors === 2  || neighbors === 3)) {//Any live cell with two or three live neighbours live on to the next generation
+                    gridCopy[y][x] = 1;
+                }else if (grid[y][x] === 1 && neighbors > 3) {//Any live cell with more than three live neighbours dies
+                    gridCopy[y][x] = 0;
+                }else if (grid[y][x] === 0 && neighbors === 3) {//Any dead cell with exactly three live neighbours becomes a live cell.
+                    setGeneration(generation+1)//increment generation
+                    gridCopy[y][x] = 1;
                 }
             }
         }
-        props.updateGrid(gridCopy)//aggiorno la griglia
+        props.updateGrid(gridCopy)//update the grid
     } 
         
     useEffect(() => {
@@ -69,13 +70,14 @@ const Game = (props:any) => {
 
 const mapStateProps = (state:any) => {
     return {
+        //take the states from the store
         grid: state.grid.grid,
         propertyGame: state.grid.propertyGame,
     }
 }
 
 const mapDispatchToProps = (dispatch:any) => ({
-    updateGrid: (value:any) => dispatch(updateGrid(value)),
+    updateGrid: (value:any) => dispatch(updateGrid(value)),//action to update the grid in the store
 })
 
 export default connect(
