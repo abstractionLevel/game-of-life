@@ -2,9 +2,12 @@ import InitGame from "../constants/init.json";
 
 export const generateGrid = () => {
     let grid = Array(InitGame[0]["rows"]).fill(0).map(()=>Array(InitGame[0]["cols"]).fill(0))
-    grid[2][1] = 1;
-    grid[3][1] = 1;
-    grid[4][1] = 1;
+    grid[2][3] = 1;
+    grid[2][2] = 1;
+    grid[2][4] = 1;
+    grid[1][4] = 1;
+    grid[0][3] = 1;
+  
     return grid;
 }
  

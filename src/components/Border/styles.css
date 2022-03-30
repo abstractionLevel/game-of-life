@@ -1,11 +1,33 @@
-.content {
+.container {
+    margin-top: 20px;
+}
+.grid-container {
     color: white;
     border: 6px solid #d0d0d0;
-    border-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius:  20px;
     width: 450px;
     height: 450px;
     margin: 0 auto;
     display: grid;
     grid-template: repeat(8,1fr)/repeat(8,1fr);
 
+}
+.grid-container-info {
+    background-color: #d0d0d0;
+    border-top-left-radius: 20px;
+    border-top-right-radius:  20px;
+    width: 450px;
+    height: 70px;
+    margin: 0 auto;
+    display: grid;
+    grid-template: 1px auto auto auto;
+
+}
+.label-generation {
+    margin-left: 10px;
+}
+.label-size-grid {
+    margin-left: 10px;
+    margin-top: -20px;
 }

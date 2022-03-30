@@ -62,14 +62,7 @@ const Game = (props:any) => {
 
     return (
         <div>
-            <button
-                onClick={()=>{
-                    setRunning(!running)
-                }}>
-                {running ? "stop" : "start"}
-            </button>
-            <p>generazione: {generation}</p>
-            <Border squares={props.grid} />
+            <Border squares={props.grid} generation={generation} />
         </div>
     )
 }
