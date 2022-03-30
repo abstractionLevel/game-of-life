@@ -2,7 +2,7 @@ import Border from "../Border"
 import { connect } from "react-redux";
 import { updateGrid } from "../../redux/game/action";
 import { useEffect, useState } from "react";
-import { propretiesGame } from "../../utils/game";
+import { propertiesGame } from "../../utils/game";
 
 const positions = [
     [0, 1], // right
@@ -21,9 +21,6 @@ const Game = (props:any) => {
 
     const [generation,setGeneration] = useState(0);
     const [running , setRunning] = useState(false);
-
-    
-    console.log(propretiesGame.properties.alive)
 
     const countNeighbors = (grid:any,i:any,t:any) => {    
         let summ = 0;

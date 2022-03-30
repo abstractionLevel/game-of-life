@@ -1,3 +1,4 @@
+import { propertiesGame } from "../../utils/game";
 import   "./styles.css";
 
 
@@ -13,7 +14,7 @@ const Square = (props:Props) => {
     return (
         <div className="rectangle  d-flex align-items-center justify-content-center" >
             <div className="value">
-                {value === 0 ? "." : "0" }
+                {value === 0 ? propertiesGame.dead : propertiesGame.alive }
             </div>
         </div>
     )

@@ -8,13 +8,13 @@ export const generateGrid = () => {
     return grid;
 }
  
-export const  propretiesGame = {
-    properties : {
+export const  propertiesGame = {
+     
         generation: InitGame[0]["generation"],
         rows:       InitGame[0]["rows"],
         cols:       InitGame[0]["cols"],
         dead:       InitGame[0]["dead"],
         alive:      InitGame[0]["alive"],   
-    }
+    
 }
 
