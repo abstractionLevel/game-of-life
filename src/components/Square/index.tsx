@@ -12,9 +12,15 @@ const Square = (props:Props) => {
 
     return (
         <div className="rectangle  d-flex align-items-center justify-content-center" >
-            <div className="value">
-                {value === 0 ? propertiesGame.dead : propertiesGame.alive }
-            </div>
+            {value === 0 ?//stampo l'icona . (dead) oppure * (alive)
+                <p className="labelDead">
+                    {propertiesGame.dead}
+                </p>
+            : 
+                <p className="labelAlive">
+                    {propertiesGame.alive }
+                </p>
+            }
         </div>
     )
 }
