@@ -1,4 +1,4 @@
-import Border from "../Border"
+import Grid from "../Grid"
 import { connect } from "react-redux";
 import { updateGrid } from "../../redux/game/action";
 import { useEffect, useState } from "react";
@@ -25,6 +25,7 @@ const Game = (props:any) => {
         return summ;//return the summ of cells
     }
     
+    //start simulation
     const startGame = (grid:any) => {
 
         let gridCopy = JSON.parse(JSON.stringify(grid));//copy grid in gridCopy
@@ -60,7 +61,7 @@ const Game = (props:any) => {
 
     return (
         <div>
-            <Border squares={props.grid} generation={generation} />
+            <Grid squares={props.grid} generation={generation} />
         </div>
     )
 }

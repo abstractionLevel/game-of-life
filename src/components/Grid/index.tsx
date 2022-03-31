@@ -3,7 +3,7 @@ import './styles.css'
 import { propertiesGame } from "../../utils/game"
 
 
-const Border = (props:any) => {
+const Grid = (props:any) => {
     return (
         <div className="container">
             <div className="grid-container-info">
@@ -23,4 +23,4 @@ const Border = (props:any) => {
 }
 
 
-export default Border; 
+export default Grid; 

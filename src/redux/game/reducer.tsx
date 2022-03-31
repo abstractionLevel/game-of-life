@@ -1,27 +1,17 @@
 import {UPDATE_GRID } from "./actionType";
-import initGame from "../../constants/init.json";
 import { generateGrid } from "../../utils/game";
 
 
-
-
-const propertyGame  = () => {
-    return initGame.map((val)=>(val))
-}
-
-
-const initialState = {//inizializzo lo stato della griglia
-    grid:generateGrid(),
-    propertyGame: propertyGame()
-    
+const initialState = {
+    grid:generateGrid(),//generate the grid in the initial state    
 }
 
 const reducer = (state = initialState,action:any) => {
     switch(action.type) {
-        case UPDATE_GRID:
+        case UPDATE_GRID://when the grid updates it created and return the new copy
             return {
-                ...state,
-                grid:action.payload
+                ...state,//create a copy
+                grid:action.payload//assign the values from the action
             }
         default: return state;
     }
