@@ -21,3 +21,6 @@ patterns throughout the course of the game.
 2)Any live cell with two or three live neighbours live on to the next generation.\
 3)Any live cell with more than three live neighbours dies.\
 4)Any dead cell with exactly three live neighbours becomes a live cell.
+
+
+### Demo [https://game-of-life-ugo.herokuapp.com/](https://game-of-life-ugo.herokuapp.com/) 
