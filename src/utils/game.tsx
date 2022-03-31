@@ -1,15 +1,39 @@
 import InitGame from "../constants/init.json";
+import pattern from "./pattern";
+
+
+
+
+const  getRandomNumber = (max:number)  => {
+    return Math.floor(Math.random() * max);
+  }
+
+const getRandomPattern = () => {
+    const numb = getRandomNumber(3);
+    switch(numb) {
+        case 0:
+            return pattern.a;
+        case 1:
+            return pattern.b;
+        case 2:
+            return pattern.c;
+        case 3:
+            return pattern.d;
+        default:
+            return;
+    }
+}
 
 export const generateGrid = () => {//create the grid
     let grid = Array(InitGame[0]["rows"]).fill(0).map(()=>Array(InitGame[0]["cols"]).fill(0))
 
     //set some cells alive
-    grid[2][3] = 1;
-    grid[2][2] = 1;
-    grid[2][4] = 1;
-    grid[1][4] = 1;
-    grid[0][3] = 1;
-  
+   
+    getRandomPattern()?.forEach(([y,x])=>{
+        grid[y][x] = 1;
+    })
+
+
     return grid;
 }
  
