@@ -1,3 +1,4 @@
+// patterns of alive cells
 const a = [
     [2,3],
     [2,2],
