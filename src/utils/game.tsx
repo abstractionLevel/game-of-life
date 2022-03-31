@@ -8,6 +8,8 @@ const  getRandomNumber = (max:number)  => {
     return Math.floor(Math.random() * max);
   }
 
+
+//get random pattern of alive cells
 const getRandomPattern = () => {
     const numb = getRandomNumber(3);
     switch(numb) {
@@ -26,14 +28,9 @@ const getRandomPattern = () => {
 
 export const generateGrid = () => {//create the grid
     let grid = Array(InitGame[0]["rows"]).fill(0).map(()=>Array(InitGame[0]["cols"]).fill(0))
-
-    //set some cells alive
-   
     getRandomPattern()?.forEach(([y,x])=>{
-        grid[y][x] = 1;
+        grid[y][x] = 1;//assign alive cells
     })
-
-
     return grid;
 }
  
