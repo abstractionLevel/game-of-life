@@ -11,7 +11,7 @@ const  getRandomNumber = (max:number)  => {
 
 //get random pattern of alive cells
 const getRandomPattern = () => {
-    const numb = getRandomNumber(3);
+    const numb = getRandomNumber(2);
     switch(numb) {
         case 0:
             return pattern.a;
