@@ -15,8 +15,8 @@ const getRandomPattern = () => {
     switch(numb) {
         case 0:
             return pattern.a;
-        case 1:
-            return pattern.b;
+        /*case 1:
+            return pattern.b;*/
         case 2:
             return pattern.c;
         case 3:
