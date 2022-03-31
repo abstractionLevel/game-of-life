@@ -1,5 +1,6 @@
 import Square from "../Square"
 import './styles.css'
+import { propertiesGame } from "../../utils/game"
 
 
 const Border = (props:any) => {
@@ -7,7 +8,7 @@ const Border = (props:any) => {
         <div className="container">
             <div className="grid-container-info">
                 <p className="label-generation">Generations : {props.generation}</p>
-                <p className="label-size-grid"> 8 8 </p>
+                <p className="label-size-grid"> {propertiesGame.rows}  {propertiesGame.cols} </p>
             </div>
             <div className="grid-container">
                 {props.squares.map((c:any) => (
@@ -20,7 +21,6 @@ const Border = (props:any) => {
         
     )
 }
-
 
 
 export default Border; 
