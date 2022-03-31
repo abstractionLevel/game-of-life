@@ -1,8 +1,8 @@
-import Grid from "../Grid"
+import Grid from "./components/Grid"
 import { connect } from "react-redux";
-import { updateGrid } from "../../redux/game/action";
+import { updateGrid } from "./redux/game/action";
 import { useEffect, useState } from "react";
-import { positions } from "../../utils/game";
+import { positions } from "./utils/game";
 
 
 const Game = (props:any) => {
