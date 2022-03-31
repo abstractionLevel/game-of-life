@@ -12,7 +12,7 @@ const Square = (props:Props) => {
 
     return (
         <div className="rectangle  d-flex align-items-center justify-content-center" >
-            {value === 0 ?//stampo l'icona . (dead) oppure * (alive)
+            {value === 0 ?//if value is 0 , print the symbol . (dead) else * (alive)
                 <p className="labelDead">
                     {propertiesGame.dead}
                 </p>
